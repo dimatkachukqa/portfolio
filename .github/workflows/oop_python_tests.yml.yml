@@ -1,4 +1,4 @@
-name: OOP Python Tests and Reports
+name: OOP Python Project Test and Reports Automation Workflow
 
 on:
   push:
@@ -10,28 +10,26 @@ jobs:
   run_tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Load repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Setup python
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.12'
+          python-version: 3.12
 
-      - name: Install dependencies
+      - name: Install requirements
         run: |
-          cd projects/oop_python
-          pip install -r requirements.txt
+          cd projects
+          pip install -r oop_python/requirements.txt
 
-      - name: Run tests and generate reports
+      - name: Run pytest and generate reports
         run: |
-          cd projects/oop_python
-          python -m pytest tests \
-            --html=reports/report.html --self-contained-html \
-            --alluredir=reports/allure-results
+          cd projects
+          python -m pytest oop_python/tests --html=oop_python/reports/report.html --self-contained-html --alluredir=oop_python/reports/allure-results
 
       - name: Upload test reports
         uses: actions/upload-artifact@v4
         with:
-          name: oop-python-test-reports
+          name: pytest-reports
           path: projects/oop_python/reports/
