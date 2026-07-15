@@ -30,7 +30,7 @@ The tests run very quickly so If you want to watch the actions more slowly,
 you can temporarily import time and add time.sleep() calls in the test code
 
 
-Next since the project follows the POM model the automation and tests run side by side
+Now since the project follows the POM model the automation and tests run side by side
 meaning the tests will activate the actual automation,
 therefore simply run the tests from the **projects** folder using the commands:
 ```bash

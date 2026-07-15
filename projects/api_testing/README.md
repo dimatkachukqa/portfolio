@@ -6,7 +6,7 @@ It uses CRUD operations alongside the requests library to automate API testing.
 Additionally includes a conftest file that can share fixtures to multiple
 pytest files, and the Postman collection used to visualize the responses.
 
-**Note:** JSONPlaceholder provides mock endpoints, 
+**Note about the practice website:** JSONPlaceholder provides mock endpoints, 
 so create/update/delete actions return valid responses without affecting real data.
 
 ## Running the project

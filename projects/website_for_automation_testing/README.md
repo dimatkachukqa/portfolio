@@ -7,5 +7,5 @@ It includes multiple pages with forms, links, iframes, and various elements to t
 ## Running the Project
 
 1. Navigate to `projects/website_for_automation_testing/src`
-2. Open `index.html` in your browser
+2. Open the homepage `index.html` in your browser
 3. Use the links to navigate between the homepage, form page, and iframe page.
