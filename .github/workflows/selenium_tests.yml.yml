@@ -10,28 +10,26 @@ jobs:
   run_tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Load repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Setup python
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.12'
+          python-version: 3.12
 
-      - name: Install dependencies
+      - name: Install requirements
         run: |
-          cd projects/automation_selenium
-          pip install -r requirements.txt
+          cd projects
+          pip install -r automation_selenium/requirements.txt
 
-      - name: Run tests and generate reports
+      - name: Run pytest and generate reports
         run: |
-          cd projects/automation_selenium
-          python -m pytest tests \
-            --html=reports/report.html --self-contained-html \
-            --alluredir=reports/allure-results
+          cd projects
+          python -m pytest automation_selenium/tests --html=automation_selenium/reports/report.html --self-contained-html --alluredir=automation_selenium/reports/allure-results
 
       - name: Upload test reports
         uses: actions/upload-artifact@v4
         with:
-          name: selenium-test-reports
+          name: pytest-reports
           path: projects/automation_selenium/reports/

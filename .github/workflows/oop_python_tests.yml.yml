@@ -1,4 +1,4 @@
-name: OOP Python Project Test and Reports Automation Workflow
+name: OOP Python Tests and Reports
 
 on:
   push:
