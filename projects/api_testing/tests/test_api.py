@@ -25,10 +25,18 @@ def test_get(base_url):
         assert post["title"] is not None
         assert post["body"] is not None
 
+
+def test_invalid_endpoint(base_url):
+    """Negative test: the status code is returned as 404 for an invalid endpoint"""
+    response = requests.get(base_url + "/invalid_endpoint")
+    assert response.status_code == 404
+
+
 def test_get_invalid(base_url):
     """Negative test: the status code is returned as 404 for an invalid endpoint"""
     response = requests.get(base_url + "/posts/999999")
     assert response.status_code == 404
+
 
 def test_post(base_url):
     """Test the status code and content type to be correct for a post request and
