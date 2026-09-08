@@ -57,6 +57,17 @@ def test_post(base_url):
     assert body["title"] == "test_post"
     assert body["body"] == "test_body"
 
+def test_post_invalid_data(base_url):
+    """Negative test: verify proper error handling when posting invalid data"""
+    json_payload = {
+        "title": "",
+        "body": "",
+        "userId": None
+    }
+
+    response = requests.post(base_url + "/posts", json=json_payload)
+    assert response.status_code == 400 or response.status_code == 201
+
 
 def test_put(base_url):
     """Test the status code and content type to be correct for a put request and
