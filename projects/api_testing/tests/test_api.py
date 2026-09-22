@@ -68,6 +68,17 @@ def test_post_invalid_data(base_url):
     response = requests.post(base_url + "/posts", json=json_payload)
     assert response.status_code == 400 or response.status_code == 201
 
+def test_post_invalid_endpoint(base_url):
+    """Negative test: the status code is returned as 404 when posting to an invalid endpoint"""
+    json_payload = {
+    "title": "test_post",
+    "body": "test_body",
+    "userId": 1
+    }
+
+    response = requests.post(base_url + "/invalid_endpoint", json=json_payload)
+    assert response.status_code == 404
+
 
 def test_put(base_url):
     """Test the status code and content type to be correct for a put request and
