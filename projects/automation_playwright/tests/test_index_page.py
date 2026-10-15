@@ -12,6 +12,9 @@ def test_title(index_page):
 def test_header(index_page):
     expect(index_page.header()).to_be_visible()
 
+def test_header_text(index_page):
+    expect(index_page.header()).to_contain_text("Automation")
+
 def test_paragraph(index_page):
     expect(index_page.paragraph()).to_be_visible()
 
